@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbacks - Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="home.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="balance.html" class="nav-item">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="xendit-dashboard.html" class="nav-item">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="accept-payments.html" class="nav-item">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="send-payments.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="callbacks.html" class="nav-item active">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Webhooks & Callbacks</h1>
+                    <p class="page-subtitle">Monitor dan kelola callback notifications dari Xendit</p>
+                </div>
+                <button class="btn-primary">+ Add Callback URL</button>
+            </div>
+
+            <!-- Callback Stats -->
+            <div class="callback-stats">
+                <div class="callback-stat-card">
+                    <div class="stat-icon-circle green">✓</div>
+                    <div class="stat-info">
+                        <div class="stat-value">1,234</div>
+                        <div class="stat-label">Successful</div>
+                    </div>
+                </div>
+
+                <div class="callback-stat-card">
+                    <div class="stat-icon-circle orange">⏳</div>
+                    <div class="stat-info">
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Pending Retry</div>
+                    </div>
+                </div>
+
+                <div class="callback-stat-card">
+                    <div class="stat-icon-circle red">✕</div>
+                    <div class="stat-info">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Failed</div>
+                    </div>
+                </div>
+
+                <div class="callback-stat-card">
+                    <div class="stat-icon-circle blue">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-value">98.7%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Callback URLs -->
+            <div class="callback-urls-section">
+                <h3>Registered Callback URLs</h3>
+                <div class="urls-list">
+                    <div class="url-card">
+                        <div class="url-header">
+                            <div class="url-status active">
+                                <span class="status-dot"></span>
+                                <span>Active</span>
+                            </div>
+                            <button class="btn-icon">⋮</button>
+                        </div>
+                        <div class="url-info">
+                            <div class="url-label">Payment Callback</div>
+                            <div class="url-path">https://api.yoursite.com/webhooks/payment</div>
+                        </div>
+                        <div class="url-meta">
+                            <span class="meta-item">🔔 Invoice, Virtual Account, E-Wallet</span>
+                            <span class="meta-item">✓ Verified</span>
+                        </div>
+                    </div>
+
+                    <div class="url-card">
+                        <div class="url-header">
+                            <div class="url-status active">
+                                <span class="status-dot"></span>
+                                <span>Active</span>
+                            </div>
+                            <button class="btn-icon">⋮</button>
+                        </div>
+                        <div class="url-info">
+                            <div class="url-label">Disbursement Callback</div>
+                            <div class="url-path">https://api.yoursite.com/webhooks/disbursement</div>
+                        </div>
+                        <div class="url-meta">
+                            <span class="meta-item">🔔 Disbursement</span>
+                            <span class="meta-item">✓ Verified</span>
+                        </div>
+                    </div>
+
+                    <div class="url-card inactive">
+                        <div class="url-header">
+                            <div class="url-status inactive">
+                                <span class="status-dot"></span>
+                                <span>Inactive</span>
+                            </div>
+                            <button class="btn-icon">⋮</button>
+                        </div>
+                        <div class="url-info">
+                            <div class="url-label">Test Callback</div>
+                            <div class="url-path">https://webhook.site/test-endpoint</div>
+                        </div>
+                        <div class="url-meta">
+                            <span class="meta-item">🔔 All Events</span>
+                            <span class="meta-item warning">⚠ Not Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Callback Logs -->
+            <div class="callback-logs">
+                <div class="card-header">
+                    <h3>Recent Callback Logs</h3>
+                    <div class="log-filters">
+                        <select class="filter-select-small">
+                            <option>All Status</option>
+                            <option>Success</option>
+                            <option>Failed</option>
+                            <option>Pending</option>
+                        </select>
+                        <select class="filter-select-small">
+                            <option>All Events</option>
+                            <option>Payment</option>
+                            <option>Disbursement</option>
+                            <option>Invoice</option>
+                        </select>
+                        <button class="btn-small">Refresh</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Event Type</th>
+                                <th>Callback URL</th>
+                                <th>Status</th>
+                                <th>Response Code</th>
+                                <th>Attempts</th>
+                                <th>Timestamp</th>
+                                <th>Next Retry</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="event-type">
+                                        <span class="event-icon">💳</span>
+                                        <span>payment.paid</span>
+                                    </div>
+                                </td>
+                                <td class="url-cell">/webhooks/payment</td>
+                                <td><span class="badge success">✓ Success</span></td>
+                                <td><span class="response-code success">200</span></td>
+                                <td>1/3</td>
+                                <td>2 Feb 2021, 10:58 PM</td>
+                                <td>-</td>
+                                <td><button class="btn-small-link">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="event-type">
+                                        <span class="event-icon">📤</span>
+                                        <span>disbursement.completed</span>
+                                    </div>
+                                </td>
+                                <td class="url-cell">/webhooks/disbursement</td>
+                                <td><span class="badge success">✓ Success</span></td>
+                                <td><span class="response-code success">200</span></td>
+                                <td>1/3</td>
+                                <td>1 Feb 2021, 04:38 PM</td>
+                                <td>-</td>
+                                <td><button class="btn-small-link">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="event-type">
+                                        <span class="event-icon">💳</span>
+                                        <span>payment.paid</span>
+                                    </div>
+                                </td>
+                                <td class="url-cell">/webhooks/payment</td>
+                                <td><span class="badge pending">⏳ Retrying</span></td>
+                                <td><span class="response-code error">500</span></td>
+                                <td>2/3</td>
+                                <td>31 Jan 2021, 02:15 PM</td>
+                                <td>In 5 minutes</td>
+                                <td><button class="btn-small-link">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="event-type">
+                                        <span class="event-icon">📄</span>
+                                        <span>invoice.paid</span>
+                                    </div>
+                                </td>
+                                <td class="url-cell">/webhooks/payment</td>
+                                <td><span class="badge success">✓ Success</span></td>
+                                <td><span class="response-code success">200</span></td>
+                                <td>1/3</td>
+                                <td>30 Jan 2021, 11:20 AM</td>
+                                <td>-</td>
+                                <td><button class="btn-small-link">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="event-type">
+                                        <span class="event-icon">💳</span>
+                                        <span>payment.failed</span>
+                                    </div>
+                                </td>
+                                <td class="url-cell">/webhooks/payment</td>
+                                <td><span class="badge failed">✕ Failed</span></td>
+                                <td><span class="response-code error">404</span></td>
+                                <td>3/3</td>
+                                <td>29 Jan 2021, 09:45 AM</td>
+                                <td>Max retries reached</td>
+                                <td><button class="btn-small-link">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Callback Testing -->
+            <div class="callback-testing">
+                <h3>Test Webhooks</h3>
+                <div class="testing-container">
+                    <div class="test-form">
+                        <div class="form-group">
+                            <label>Callback URL</label>
+                            <select class="form-input">
+                                <option>https://api.yoursite.com/webhooks/payment</option>
+                                <option>https://api.yoursite.com/webhooks/disbursement</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Event Type</label>
+                            <select class="form-input">
+                                <option>payment.paid</option>
+                                <option>payment.failed</option>
+                                <option>invoice.paid</option>
+                                <option>invoice.expired</option>
+                                <option>disbursement.completed</option>
+                                <option>disbursement.failed</option>
+                            </select>
+                        </div>
+
+                        <button class="btn-primary">Send Test Callback</button>
+                    </div>
+
+                    <div class="test-result">
+                        <div class="result-header">Last Test Result</div>
+                        <div class="result-content">
+                            <div class="result-item">
+                                <span class="result-label">Status:</span>
+                                <span class="badge success">✓ Success</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Response Code:</span>
+                                <span class="response-code success">200</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Response Time:</span>
+                                <span>245ms</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Timestamp:</span>
+                                <span>2 Feb 2021, 11:30 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentation -->
+            <div class="callback-docs">
+                <div class="docs-header">
+                    <h3>📚 Webhook Documentation</h3>
+                </div>
+                <div class="docs-content">
+                    <div class="doc-item">
+                        <div class="doc-title">Getting Started</div>
+                        <p>Learn how to set up and configure webhooks for your integration</p>
+                        <a href="#" class="link-blue">Read Guide →</a>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-title">Event Types</div>
+                        <p>Complete reference of all available webhook events</p>
+                        <a href="#" class="link-blue">View Events →</a>
+                    </div>
+                    <div class="doc-item">
+                        <div class="doc-title">Security</div>
+                        <p>Best practices for securing your webhook endpoints</p>
+                        <a href="#" class="link-blue">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+</body>
+</html>

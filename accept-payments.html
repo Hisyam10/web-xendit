@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accept Payments - Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="home.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="balance.html" class="nav-item">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="xendit-dashboard.html" class="nav-item">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="accept-payments.html" class="nav-item active">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="send-payments.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="callbacks.html" class="nav-item">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1 class="page-title">Accept Payments</h1>
+
+            <!-- Payment Method Selector -->
+            <div class="payment-selector">
+                <h3>Pilih Metode Pembayaran</h3>
+                <div class="payment-methods-grid">
+                    <div class="payment-option" onclick="selectPaymentMethod('invoice')">
+                        <div class="payment-option-icon">📄</div>
+                        <div class="payment-option-name">Invoice</div>
+                        <div class="payment-option-desc">Buat invoice untuk pelanggan</div>
+                    </div>
+
+                    <div class="payment-option" onclick="selectPaymentMethod('va')">
+                        <div class="payment-option-icon">🏦</div>
+                        <div class="payment-option-name">Virtual Account</div>
+                        <div class="payment-option-desc">Transfer bank otomatis</div>
+                    </div>
+
+                    <div class="payment-option" onclick="selectPaymentMethod('card')">
+                        <div class="payment-option-icon">💳</div>
+                        <div class="payment-option-name">Credit Card</div>
+                        <div class="payment-option-desc">Kartu kredit/debit</div>
+                    </div>
+
+                    <div class="payment-option" onclick="selectPaymentMethod('ewallet')">
+                        <div class="payment-option-icon">📱</div>
+                        <div class="payment-option-name">E-Wallet</div>
+                        <div class="payment-option-desc">OVO, GoPay, Dana, dll</div>
+                    </div>
+
+                    <div class="payment-option" onclick="selectPaymentMethod('qris')">
+                        <div class="payment-option-icon">📲</div>
+                        <div class="payment-option-name">QRIS</div>
+                        <div class="payment-option-desc">Scan QR code</div>
+                    </div>
+
+                    <div class="payment-option" onclick="selectPaymentMethod('retail')">
+                        <div class="payment-option-icon">🏪</div>
+                        <div class="payment-option-name">Retail Outlet</div>
+                        <div class="payment-option-desc">Alfamart, Indomaret</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Payment Form -->
+            <div class="payment-form-section">
+                <h3>Buat Pembayaran Baru</h3>
+                <div class="form-container">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Metode Pembayaran</label>
+                            <select class="form-input" id="payment-method">
+                                <option value="">Pilih metode pembayaran</option>
+                                <option value="invoice">Invoice</option>
+                                <option value="va">Virtual Account</option>
+                                <option value="card">Credit Card</option>
+                                <option value="ewallet">E-Wallet</option>
+                                <option value="qris">QRIS</option>
+                                <option value="retail">Retail Outlet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pembayaran</label>
+                            <div class="input-with-prefix">
+                                <span class="input-prefix">IDR</span>
+                                <input type="text" class="form-input" placeholder="0" id="amount">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Pelanggan</label>
+                            <input type="text" class="form-input" placeholder="Masukkan nama pelanggan" id="customer-name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Pelanggan</label>
+                            <input type="email" class="form-input" placeholder="customer@example.com" id="customer-email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Deskripsi Pembayaran</label>
+                        <textarea class="form-input" rows="3" placeholder="Masukkan deskripsi atau catatan" id="description"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Masa Berlaku</label>
+                            <select class="form-input" id="expiry">
+                                <option value="24">24 Jam</option>
+                                <option value="48">48 Jam</option>
+                                <option value="72">3 Hari</option>
+                                <option value="168">7 Hari</option>
+                                <option value="720">30 Hari</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Reference ID (Opsional)</label>
+                            <input type="text" class="form-input" placeholder="REF-001" id="reference">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn-secondary">Reset</button>
+                        <button class="btn-primary">Buat Pembayaran</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Payment Requests -->
+            <div class="recent-payments">
+                <div class="card-header">
+                    <h3>Recent Payment Requests</h3>
+                    <a href="#" class="link-blue">View All →</a>
+                </div>
+
+                <div class="table-container">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Customer</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Expires</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>INV-2024-005</td>
+                                <td>Ahmad Rizki</td>
+                                <td>Virtual Account</td>
+                                <td class="amount-green">IDR 150.000</td>
+                                <td><span class="badge success">✓ Paid</span></td>
+                                <td>2 Feb 2021</td>
+                                <td>-</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>INV-2024-004</td>
+                                <td>Siti Nurhaliza</td>
+                                <td>E-Wallet</td>
+                                <td class="amount-orange">IDR 75.000</td>
+                                <td><span class="badge pending">⏳ Pending</span></td>
+                                <td>1 Feb 2021</td>
+                                <td>3 Feb 2021</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>INV-2024-003</td>
+                                <td>Budi Santoso</td>
+                                <td>Credit Card</td>
+                                <td class="amount-green">IDR 250.000</td>
+                                <td><span class="badge success">✓ Paid</span></td>
+                                <td>31 Jan 2021</td>
+                                <td>-</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>INV-2024-002</td>
+                                <td>Dewi Lestari</td>
+                                <td>QRIS</td>
+                                <td class="amount-red">IDR 50.000</td>
+                                <td><span class="badge expired">✕ Expired</span></td>
+                                <td>30 Jan 2021</td>
+                                <td>31 Jan 2021</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+
+    <script>
+        function selectPaymentMethod(method) {
+            document.getElementById('payment-method').value = method;
+            document.querySelector('.payment-form-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

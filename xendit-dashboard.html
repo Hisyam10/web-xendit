@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="#" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon green">↓</div>
+                    <div class="stat-info">
+                        <p class="stat-label">Total Incoming Amount</p>
+                        <p class="stat-value">IDR 40.000</p>
+                    </div>
+                    <div class="stat-count">
+                        <p class="stat-label">Transactions Count</p>
+                        <p class="stat-number">3</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon red">↑</div>
+                    <div class="stat-info">
+                        <p class="stat-label">Total Outgoing Amount</p>
+                        <p class="stat-value">IDR 20.000</p>
+                    </div>
+                    <div class="stat-count">
+                        <p class="stat-label">Transactions Count</p>
+                        <p class="stat-number">1</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters">
+                <select class="filter-select">
+                    <option>Filter (0)</option>
+                </select>
+                <input type="date" class="date-input" value="2021-01-04">
+                <span class="date-separator">-</span>
+                <input type="date" class="date-input" value="2021-01-04">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search by Reference">
+                </div>
+                <button class="export-btn">📤 Export</button>
+            </div>
+
+            <!-- Table -->
+            <div class="table-container">
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Channel</th>
+                            <th>Account</th>
+                            <th>Amount</th>
+                            <th>Reference</th>
+                            <th>Date Created</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge success">✓ Success</span></td>
+                            <td>Payment</td>
+                            <td>Invoice</td>
+                            <td>0123456789</td>
+                            <td class="amount-green">↓ IDR 10.000</td>
+                            <td>demo-4</td>
+                            <td>1 Feb 2021, 10:58 PM</td>
+                            <td><button class="menu-btn">⋮</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge success">✓ Success</span></td>
+                            <td>Disbursement</td>
+                            <td>Bank</td>
+                            <td class="bank-account">
+                                <span class="bank-logo">🏦</span> 0123456789
+                            </td>
+                            <td class="amount-red">↑ IDR 20.000</td>
+                            <td>demo-3</td>
+                            <td>14 Jan 2021, 04:38 PM</td>
+                            <td><button class="menu-btn">⋮</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge success">✓ Success</span></td>
+                            <td>Payment</td>
+                            <td>Virtual Account</td>
+                            <td>
+                                <span class="va-icon">—→</span> 0123456789
+                            </td>
+                            <td class="amount-green">↓ IDR 10.000</td>
+                            <td>demo-2</td>
+                            <td>14 Jan 2021, 04:31 PM</td>
+                            <td><button class="menu-btn">⋮</button></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge success">✓ Success</span></td>
+                            <td>Payment</td>
+                            <td>Virtual Account</td>
+                            <td>
+                                <span class="va-icon">—→</span> 0123456789
+                            </td>
+                            <td class="amount-green">↓ IDR 20.000</td>
+                            <td>demo-1</td>
+                            <td>14 Jan 2021, 04:07 PM</td>
+                            <td><button class="menu-btn">⋮</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <p class="pagination-info">Showing 1 - 4 from 4 transactions</p>
+                <div class="pagination-controls">
+                    <button class="page-btn" disabled>‹</button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn" disabled">›</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+</body>
+</html>

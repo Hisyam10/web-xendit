@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="home.html" class="nav-item active">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="balance.html" class="nav-item">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="xendit-dashboard.html" class="nav-item">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="accept-payments.html" class="nav-item">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="send-payments.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="callbacks.html" class="nav-item">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1 class="page-title">Dashboard Overview</h1>
+            
+            <!-- Welcome Card -->
+            <div class="welcome-card">
+                <div class="welcome-content">
+                    <h2>Selamat Datang di Xendit! 👋</h2>
+                    <p>Kelola pembayaran bisnis Anda dengan mudah dan aman</p>
+                </div>
+                <button class="btn-primary">Mulai Sekarang</button>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-header">
+                        <span class="stat-icon-small green">💰</span>
+                        <span class="stat-label">Total Balance</span>
+                    </div>
+                    <h3 class="stat-big-value">IDR 150.000</h3>
+                    <p class="stat-change positive">+12.5% dari bulan lalu</p>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-header">
+                        <span class="stat-icon-small blue">📊</span>
+                        <span class="stat-label">Total Transaksi</span>
+                    </div>
+                    <h3 class="stat-big-value">247</h3>
+                    <p class="stat-change positive">+8 transaksi hari ini</p>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-header">
+                        <span class="stat-icon-small purple">👥</span>
+                        <span class="stat-label">Pelanggan Aktif</span>
+                    </div>
+                    <h3 class="stat-big-value">1,234</h3>
+                    <p class="stat-change positive">+45 bulan ini</p>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-header">
+                        <span class="stat-icon-small orange">📈</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <h3 class="stat-big-value">98.5%</h3>
+                    <p class="stat-change neutral">Stabil</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity & Quick Actions -->
+            <div class="home-grid">
+                <!-- Recent Transactions -->
+                <div class="home-card">
+                    <div class="card-header">
+                        <h3>Transaksi Terbaru</h3>
+                        <a href="xendit-dashboard.html" class="link-blue">Lihat Semua →</a>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon green">↓</div>
+                            <div class="activity-info">
+                                <p class="activity-title">Payment Received</p>
+                                <p class="activity-desc">Invoice #INV-2024-001</p>
+                            </div>
+                            <div class="activity-amount green">+IDR 50.000</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon red">↑</div>
+                            <div class="activity-info">
+                                <p class="activity-title">Disbursement</p>
+                                <p class="activity-desc">To Bank BCA *****6789</p>
+                            </div>
+                            <div class="activity-amount red">-IDR 20.000</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon green">↓</div>
+                            <div class="activity-info">
+                                <p class="activity-title">Payment Received</p>
+                                <p class="activity-desc">Virtual Account</p>
+                            </div>
+                            <div class="activity-amount green">+IDR 75.000</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon green">↓</div>
+                            <div class="activity-info">
+                                <p class="activity-title">Payment Received</p>
+                                <p class="activity-desc">E-Wallet - OVO</p>
+                            </div>
+                            <div class="activity-amount green">+IDR 30.000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="home-card">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="accept-payments.html" class="action-btn">
+                            <span class="action-icon">📥</span>
+                            <span class="action-text">Terima Pembayaran</span>
+                        </a>
+                        <a href="send-payments.html" class="action-btn">
+                            <span class="action-icon">📤</span>
+                            <span class="action-text">Kirim Pembayaran</span>
+                        </a>
+                        <a href="balance.html" class="action-btn">
+                            <span class="action-icon">💰</span>
+                            <span class="action-text">Cek Saldo</span>
+                        </a>
+                        <a href="xendit-dashboard.html" class="action-btn">
+                            <span class="action-icon">📊</span>
+                            <span class="action-text">Lihat Laporan</span>
+                        </a>
+                    </div>
+
+                    <!-- API Status -->
+                    <div class="api-status">
+                        <h4>API Status</h4>
+                        <div class="status-item">
+                            <span class="status-dot green"></span>
+                            <span>All Systems Operational</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="home-card">
+                <div class="card-header">
+                    <h3>Metode Pembayaran Tersedia</h3>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <span class="pm-icon">🏦</span>
+                        <span class="pm-name">Virtual Account</span>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">💳</span>
+                        <span class="pm-name">Credit Card</span>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">📱</span>
+                        <span class="pm-name">E-Wallet</span>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">🏪</span>
+                        <span class="pm-name">Retail Outlet</span>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">💰</span>
+                        <span class="pm-name">QRIS</span>
+                    </div>
+                    <div class="payment-method">
+                        <span class="pm-icon">🔗</span>
+                        <span class="pm-name">PayLater</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+</body>
+</html>

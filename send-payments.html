@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Payments - Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="home.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="balance.html" class="nav-item">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="xendit-dashboard.html" class="nav-item">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="accept-payments.html" class="nav-item">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="send-payments.html" class="nav-item active">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="callbacks.html" class="nav-item">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="page-header">
+                <h1 class="page-title">Send Payments</h1>
+                <div class="balance-info-small">
+                    <span>Available Balance:</span>
+                    <strong>IDR 120.000</strong>
+                </div>
+            </div>
+
+            <!-- Disbursement Options -->
+            <div class="disbursement-options">
+                <h3>Pilih Metode Pengiriman</h3>
+                <div class="disbursement-grid">
+                    <div class="disbursement-option" onclick="selectDisbursementMethod('bank')">
+                        <div class="disbursement-icon">🏦</div>
+                        <div class="disbursement-name">Bank Transfer</div>
+                        <div class="disbursement-desc">Transfer ke rekening bank</div>
+                        <div class="disbursement-fee">Fee: IDR 4.000</div>
+                    </div>
+
+                    <div class="disbursement-option" onclick="selectDisbursementMethod('ewallet')">
+                        <div class="disbursement-icon">📱</div>
+                        <div class="disbursement-name">E-Wallet</div>
+                        <div class="disbursement-desc">OVO, GoPay, Dana</div>
+                        <div class="disbursement-fee">Fee: IDR 1.500</div>
+                    </div>
+
+                    <div class="disbursement-option" onclick="selectDisbursementMethod('retail')">
+                        <div class="disbursement-icon">🏪</div>
+                        <div class="disbursement-name">Cash Pickup</div>
+                        <div class="disbursement-desc">Ambil di Alfamart/Indomaret</div>
+                        <div class="disbursement-fee">Fee: IDR 5.000</div>
+                    </div>
+
+                    <div class="disbursement-option" onclick="selectDisbursementMethod('batch')">
+                        <div class="disbursement-icon">📊</div>
+                        <div class="disbursement-name">Batch Transfer</div>
+                        <div class="disbursement-desc">Kirim ke banyak rekening</div>
+                        <div class="disbursement-fee">Bulk processing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Send Payment Form -->
+            <div class="send-payment-form">
+                <h3>Detail Pengiriman</h3>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Metode Pengiriman</label>
+                        <select class="form-input" id="disbursement-method">
+                            <option value="">Pilih metode</option>
+                            <option value="bank">Bank Transfer</option>
+                            <option value="ewallet">E-Wallet</option>
+                            <option value="retail">Cash Pickup</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row" id="bank-details" style="display: none;">
+                        <div class="form-group">
+                            <label>Bank</label>
+                            <select class="form-input">
+                                <option value="">Pilih bank</option>
+                                <option value="bca">Bank Central Asia (BCA)</option>
+                                <option value="mandiri">Bank Mandiri</option>
+                                <option value="bni">Bank Negara Indonesia (BNI)</option>
+                                <option value="bri">Bank Rakyat Indonesia (BRI)</option>
+                                <option value="cimb">CIMB Niaga</option>
+                                <option value="permata">Bank Permata</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor Rekening</label>
+                            <input type="text" class="form-input" placeholder="1234567890">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Penerima</label>
+                            <input type="text" class="form-input" placeholder="Nama lengkap penerima">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Penerima (Opsional)</label>
+                            <input type="email" class="form-input" placeholder="recipient@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Jumlah</label>
+                            <div class="input-with-prefix">
+                                <span class="input-prefix">IDR</span>
+                                <input type="text" class="form-input" placeholder="0" id="send-amount">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Biaya Admin</label>
+                            <div class="fee-display">
+                                <span class="fee-amount">IDR 4.000</span>
+                                <span class="fee-info">Transfer biaya ditanggung pengirim</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Catatan (Opsional)</label>
+                        <textarea class="form-input" rows="2" placeholder="Tambahkan catatan untuk penerima"></textarea>
+                    </div>
+
+                    <div class="total-summary">
+                        <div class="summary-row">
+                            <span>Jumlah Transfer:</span>
+                            <span>IDR 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Biaya Admin:</span>
+                            <span>IDR 4.000</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total Debit:</span>
+                            <span>IDR 4.000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn-secondary">Reset</button>
+                        <button class="btn-primary">Kirim Pembayaran</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Disbursements -->
+            <div class="recent-disbursements">
+                <div class="card-header">
+                    <h3>Recent Disbursements</h3>
+                    <a href="#" class="link-blue">View All →</a>
+                </div>
+
+                <div class="table-container">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Recipient</th>
+                                <th>Method</th>
+                                <th>Account</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DISB-2024-010</td>
+                                <td>Ahmad Rizki</td>
+                                <td>Bank Transfer</td>
+                                <td>BCA - ****6789</td>
+                                <td class="amount-red">IDR 50.000</td>
+                                <td><span class="badge success">✓ Completed</span></td>
+                                <td>2 Feb 2021, 09:30 AM</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>DISB-2024-009</td>
+                                <td>Siti Nurhaliza</td>
+                                <td>E-Wallet</td>
+                                <td>OVO - 0812****5678</td>
+                                <td class="amount-red">IDR 25.000</td>
+                                <td><span class="badge pending">⏳ Processing</span></td>
+                                <td>1 Feb 2021, 02:15 PM</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>DISB-2024-008</td>
+                                <td>Budi Santoso</td>
+                                <td>Bank Transfer</td>
+                                <td>Mandiri - ****1234</td>
+                                <td class="amount-red">IDR 100.000</td>
+                                <td><span class="badge success">✓ Completed</span></td>
+                                <td>31 Jan 2021, 11:45 AM</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                            <tr>
+                                <td>DISB-2024-007</td>
+                                <td>Dewi Lestari</td>
+                                <td>Cash Pickup</td>
+                                <td>Alfamart - JAK001</td>
+                                <td class="amount-red">IDR 75.000</td>
+                                <td><span class="badge failed">✕ Failed</span></td>
+                                <td>30 Jan 2021, 04:20 PM</td>
+                                <td><button class="menu-btn">⋮</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Saved Recipients -->
+            <div class="saved-recipients">
+                <div class="card-header">
+                    <h3>Saved Recipients</h3>
+                    <button class="btn-small">+ Add Recipient</button>
+                </div>
+
+                <div class="recipients-grid">
+                    <div class="recipient-card">
+                        <div class="recipient-avatar">AR</div>
+                        <div class="recipient-info">
+                            <div class="recipient-name">Ahmad Rizki</div>
+                            <div class="recipient-account">BCA - ****6789</div>
+                        </div>
+                        <button class="btn-small-outline">Send</button>
+                    </div>
+
+                    <div class="recipient-card">
+                        <div class="recipient-avatar">SN</div>
+                        <div class="recipient-info">
+                            <div class="recipient-name">Siti Nurhaliza</div>
+                            <div class="recipient-account">Mandiri - ****1234</div>
+                        </div>
+                        <button class="btn-small-outline">Send</button>
+                    </div>
+
+                    <div class="recipient-card">
+                        <div class="recipient-avatar">BS</div>
+                        <div class="recipient-info">
+                            <div class="recipient-name">Budi Santoso</div>
+                            <div class="recipient-account">BNI - ****5678</div>
+                        </div>
+                        <button class="btn-small-outline">Send</button>
+                    </div>
+
+                    <div class="recipient-card">
+                        <div class="recipient-avatar">DL</div>
+                        <div class="recipient-info">
+                            <div class="recipient-name">Dewi Lestari</div>
+                            <div class="recipient-account">OVO - ****9012</div>
+                        </div>
+                        <button class="btn-small-outline">Send</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+
+    <script>
+        function selectDisbursementMethod(method) {
+            document.getElementById('disbursement-method').value = method;
+            document.querySelector('.send-payment-form').scrollIntoView({ behavior: 'smooth' });
+            
+            if (method === 'bank') {
+                document.getElementById('bank-details').style.display = 'flex';
+            }
+        }
+
+        document.getElementById('disbursement-method').addEventListener('change', function() {
+            if (this.value === 'bank') {
+                document.getElementById('bank-details').style.display = 'flex';
+            } else {
+                document.getElementById('bank-details').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

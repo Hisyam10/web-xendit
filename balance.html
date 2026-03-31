@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance - Xendit Dashboard</title>
+    <link rel="stylesheet" href="xendit-styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#6C5CE7"/>
+                    <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="#6C5CE7"/>
+                </svg>
+                <span class="logo-text">xendit</span>
+            </div>
+            <div class="live-badge">LIVE</div>
+        </div>
+        <div class="header-right">
+            <button class="icon-btn">
+                <span class="notification-badge">3</span>
+                🔔
+            </button>
+            <button class="icon-btn">❓</button>
+            <div class="language-selector">
+                <span>🌐 English</span>
+            </div>
+            <div class="user-profile">
+                <span class="user-name">TXI Demo Account</span>
+                <div class="avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <a href="home.html" class="nav-item">
+                    <span class="icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="balance.html" class="nav-item active">
+                    <span class="icon">⚖️</span>
+                    <span>Balance</span>
+                </a>
+                <a href="xendit-dashboard.html" class="nav-item">
+                    <span class="icon">💳</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="accept-payments.html" class="nav-item">
+                    <span class="icon">📥</span>
+                    <span>Accept Payments</span>
+                </a>
+                <a href="send-payments.html" class="nav-item">
+                    <span class="icon">📤</span>
+                    <span>Send Payments</span>
+                </a>
+                <a href="callbacks.html" class="nav-item">
+                    <span class="icon">↩️</span>
+                    <span>Callbacks</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔗</span>
+                    <span>xenPlatform</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="balance-toggle">
+                <span>Balance View</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+                <p class="balance-text">Switch from Cash to Balance View</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="page-header">
+                <h1 class="page-title">Balance</h1>
+                <button class="btn-primary">Withdraw Funds</button>
+            </div>
+
+            <!-- Balance Overview -->
+            <div class="balance-overview">
+                <div class="balance-main-card">
+                    <div class="balance-label">Total Available Balance</div>
+                    <div class="balance-amount">IDR 150.000</div>
+                    <div class="balance-actions">
+                        <button class="btn-outline">Transfer to Bank</button>
+                        <button class="btn-outline">View History</button>
+                    </div>
+                </div>
+
+                <div class="balance-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-header">
+                            <span class="breakdown-icon green">💰</span>
+                            <span class="breakdown-label">Cash Balance</span>
+                        </div>
+                        <div class="breakdown-value">IDR 120.000</div>
+                        <div class="breakdown-desc">Available for withdrawal</div>
+                    </div>
+
+                    <div class="breakdown-item">
+                        <div class="breakdown-header">
+                            <span class="breakdown-icon blue">⏳</span>
+                            <span class="breakdown-label">Pending Balance</span>
+                        </div>
+                        <div class="breakdown-value">IDR 30.000</div>
+                        <div class="breakdown-desc">Processing transactions</div>
+                    </div>
+
+                    <div class="breakdown-item">
+                        <div class="breakdown-header">
+                            <span class="breakdown-icon purple">🔒</span>
+                            <span class="breakdown-label">Hold Balance</span>
+                        </div>
+                        <div class="breakdown-value">IDR 0</div>
+                        <div class="breakdown-desc">Reserved funds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Balance History -->
+            <div class="balance-history">
+                <div class="card-header">
+                    <h3>Balance History</h3>
+                    <div class="filter-tabs">
+                        <button class="tab-btn active">Semua</button>
+                        <button class="tab-btn">Deposits</button>
+                        <button class="tab-btn">Withdrawals</button>
+                    </div>
+                </div>
+
+                <div class="history-list">
+                    <div class="history-item">
+                        <div class="history-icon green">↓</div>
+                        <div class="history-info">
+                            <p class="history-title">Payment Received</p>
+                            <p class="history-desc">From Invoice #INV-2024-001</p>
+                            <p class="history-date">1 Feb 2021, 10:58 PM</p>
+                        </div>
+                        <div class="history-amount green">+IDR 50.000</div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon red">↑</div>
+                        <div class="history-info">
+                            <p class="history-title">Withdrawal to Bank</p>
+                            <p class="history-desc">BCA - 0123456789</p>
+                            <p class="history-date">31 Jan 2021, 03:22 PM</p>
+                        </div>
+                        <div class="history-amount red">-IDR 100.000</div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon green">↓</div>
+                        <div class="history-info">
+                            <p class="history-title">Payment Received</p>
+                            <p class="history-desc">Virtual Account Payment</p>
+                            <p class="history-date">30 Jan 2021, 09:15 AM</p>
+                        </div>
+                        <div class="history-amount green">+IDR 75.000</div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon green">↓</div>
+                        <div class="history-info">
+                            <p class="history-title">Payment Received</p>
+                            <p class="history-desc">E-Wallet - OVO</p>
+                            <p class="history-date">29 Jan 2021, 02:40 PM</p>
+                        </div>
+                        <div class="history-amount green">+IDR 30.000</div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon blue">⚡</div>
+                        <div class="history-info">
+                            <p class="history-title">Fee Deduction</p>
+                            <p class="history-desc">Transaction fee</p>
+                            <p class="history-date">29 Jan 2021, 02:40 PM</p>
+                        </div>
+                        <div class="history-amount gray">-IDR 500</div>
+                    </div>
+
+                    <div class="history-item">
+                        <div class="history-icon green">↓</div>
+                        <div class="history-info">
+                            <p class="history-title">Payment Received</p>
+                            <p class="history-desc">Credit Card Payment</p>
+                            <p class="history-date">28 Jan 2021, 11:20 AM</p>
+                        </div>
+                        <div class="history-amount green">+IDR 95.500</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bank Accounts -->
+            <div class="bank-accounts-section">
+                <div class="card-header">
+                    <h3>Linked Bank Accounts</h3>
+                    <button class="btn-small">+ Add Bank Account</button>
+                </div>
+
+                <div class="bank-accounts-grid">
+                    <div class="bank-card">
+                        <div class="bank-card-header">
+                            <span class="bank-icon">🏦</span>
+                            <span class="bank-badge primary">Primary</span>
+                        </div>
+                        <div class="bank-name">Bank Central Asia (BCA)</div>
+                        <div class="bank-account-number">**** **** **** 6789</div>
+                        <div class="bank-account-holder">John Doe</div>
+                    </div>
+
+                    <div class="bank-card">
+                        <div class="bank-card-header">
+                            <span class="bank-icon">🏦</span>
+                        </div>
+                        <div class="bank-name">Bank Mandiri</div>
+                        <div class="bank-account-number">**** **** **** 1234</div>
+                        <div class="bank-account-holder">John Doe</div>
+                    </div>
+
+                    <div class="bank-card add-bank">
+                        <div class="add-bank-icon">+</div>
+                        <div class="add-bank-text">Add New Bank Account</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Help Button -->
+    <button class="help-btn">
+        💬 Help
+    </button>
+</body>
+</html>
